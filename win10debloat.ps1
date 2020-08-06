@@ -217,13 +217,13 @@ Function Install7Zip {
 }
 
 Function InstallNotepadplusplus {
-	Write-Output "Installing Notepad++"
-	choco install notepadplusplus -y
+	Write-Output "Installing Kate"
+	choco install kate -y
 }
 
 Function InstallMediaPlayerClassic {
-	Write-Output "Installing Media Player Classic (VLC Alternative)"
-	choco install mpc-hc -y
+	Write-Output "Installing VLC"
+	choco install vlc -y
 }
 
 ##########
