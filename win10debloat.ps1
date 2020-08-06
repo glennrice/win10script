@@ -31,10 +31,14 @@ $tweaks = @(
 
 	### External Program Setup
 	"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS!
-	"InstallAdobe",
+	#"InstallAdobe",
+	"InstallPDFReader",
 	"Install7Zip",
-	"InstallNotepadplusplus",
-	"InstallMediaPlayerClassic",
+	"InstallKate",
+	"InstallVlc",
+	"InstallMozilla",
+	"InstallOffice",
+	"InstallJumpcloudAgent",
 
 	### Windows Apps
 	"DebloatAll",
@@ -122,7 +126,7 @@ $tweaks = @(
 	# "SetVisualFXPerformance",     # "SetVisualFXAppearance",
 	# "AddENKeyboard",              # "RemoveENKeyboard",
 	"EnableNumlock",             	# "DisableNumlock",
-	"EnableDarkMode",				# "DisableDarkMode",
+	"DisableDarkMode",				# "EnableDarkMode",
 	"Stop-EdgePDF",
 
 	### Explorer UI Tweaks ###
@@ -201,9 +205,14 @@ Function InstallTitusProgs {
 	./OOSU10.exe ooshutup10.cfg /quiet
 }
 
-Function InstallAdobe {
-	Write-Output "Installing Adobe Acrobat Reader"
-	choco install adobereader -y
+#Function InstallAdobe {
+#	Write-Output "Installing Adobe Acrobat Reader"
+#	choco install adobereader -y
+#}
+
+Function InstallPDFReader {
+    Write-Output "Installing NitroPDF"
+    choco install okular -y
 }
 
 Function InstallJava {
@@ -221,9 +230,26 @@ Function InstallNotepadplusplus {
 	choco install kate -y
 }
 
-Function InstallMediaPlayerClassic {
+Function InstallVlc {
 	Write-Output "Installing VLC"
 	choco install vlc -y
+}
+
+Function InstallMozilla {
+    Write-Output "Installing Firefox"
+    choco install firefox -y
+    Write-Output "Installing Thuderbird"
+    choco install thunderbird -y
+
+}
+
+Function InstallOffice {
+    Write-Output "Installing Office365"
+    choco install office365homepremium -y
+}
+
+Function InstallJumpcloudAgent {
+    cd $env:temp | Invoke-Expression; Invoke-RestMethod -Method Get -URI https://raw.githubusercontent.com/TheJumpCloud/support/master/scripts/windows/InstallWindowsAgent.ps1 -OutFile InstallWindowsAgent.ps1 | Invoke-Expression; ./InstallWindowsAgent.ps1 -JumpCloudConnectKey "--- connect key ---"
 }
 
 ##########
