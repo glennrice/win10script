@@ -211,7 +211,7 @@ Function InstallTitusProgs {
 #}
 
 Function InstallPDFReader {
-    Write-Output "Installing NitroPDF"
+    Write-Output "Installing Okular"
     choco install okular -y
 }
 
@@ -238,7 +238,7 @@ Function InstallVlc {
 Function InstallMozilla {
     Write-Output "Installing Firefox"
     choco install firefox -y
-    Write-Output "Installing Thuderbird"
+    Write-Output "Installing Thunderbird"
     choco install thunderbird -y
 
 }
